@@ -22,7 +22,6 @@ import binascii
 from challenge2 import computeXor
 
 def encrypt(text, key):
-	# TODO: use function from challenge 2.
 	key_length = len(key)
 	text_length = len(text)
 
