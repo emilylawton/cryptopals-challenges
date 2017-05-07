@@ -15,7 +15,12 @@ import base64
 def computeXor(x, y):
 	return format(int(x,16)^int(y,16), 'x')
 
-x = '1c0111001f010100061a024b53535009181c'
-y = '686974207468652062756c6c277320657965'
-expectedOutput = '746865206b696420646f6e277420706c6179'
-assert(computeXor(x, y) == expectedOutput)
+def main():
+	x = '1c0111001f010100061a024b53535009181c'
+	y = '686974207468652062756c6c277320657965'
+	expectedOutput = '746865206b696420646f6e277420706c6179'
+	assert(computeXor(x, y) == expectedOutput)
+
+
+if __name__ == '__main__':
+	main()
