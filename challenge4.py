@@ -28,7 +28,7 @@ def detect_single_char_XOR(file):
 	return messages[i]
 
 def main():
-	file = 'text_challenge4.txt'
+	file = 'data/text_challenge4.txt'
 	result = detect_single_char_XOR(file)
 	print "Decoded message: ", result
 

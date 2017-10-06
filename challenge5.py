@@ -19,7 +19,6 @@ Get a feel for it. I promise, we aren't wasting your time with this.
 
 '''
 import binascii
-from challenge2 import computeXor
 
 def encrypt(text, key):
 	key_length = len(key)

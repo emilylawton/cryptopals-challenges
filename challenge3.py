@@ -12,6 +12,7 @@ How? Devise some method for "scoring" a piece of English plaintext.
 Character frequency is a good metric. Evaluate each output and choose the one with the best score.  
 '''
 import binascii
+from math import *
 
 # Character frequency
 p_i = [0]*256
@@ -42,7 +43,6 @@ p_i[119] = .024
 p_i[120] = .02
 p_i[121] = .001
 p_i[122] = .001
-p_i *= 100 # give more weight to a-z chars
 
 # Calculate I_j using the common character frequences and the recorded frequences
 def compute_i_j(potential_key, frequencies):
@@ -54,7 +54,8 @@ def compute_i_j(potential_key, frequencies):
 # Compute frequencies of each letter in the encoded string
 def compute_frequencies(c):
 	occurrences = [0]*256
-	for letter in c.lower():
+	# for letter in c.lower():
+	for letter in c:
 		occurrences[ord(letter)] += 1
 	return occurrences
 
@@ -73,7 +74,7 @@ def breakSingleByteXOR(s):
 	result = bytearray(l)
 	for i in range(l):
 		result[i] = ord(s[i]) ^ key
-	return [result.decode('utf-8'),max_i_j]
+	return [result.decode('utf-8'), max_i_j, chr(key)]
 
 def main():
 	encoded = '1b37373331363f78151b7f2b783431333d78397828372d363c78373e783a393b3736'
